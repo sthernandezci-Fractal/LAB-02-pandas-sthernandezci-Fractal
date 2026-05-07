@@ -5,20 +5,26 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
 
 def pregunta_11():
-    """
-    Construya una tabla que contenga `c0` y una lista separada por ',' de
-    los valores de la columna `c4` del archivo `tbl1.tsv`.
+     tbl1 = pd.read_csv("files/input/tbl1.tsv", sep="\t")
+     tbl1["c4"] = tbl1["c4"].str.split(",")
+     return tbl1[["c0", "c4"]].explode("c4").groupby("c0")["c4"].apply(lambda x: ",".join(sorted(x))).reset_index()
+print("La tabla que contiene c0 y una lista separada por ',' de los valores de la columna c4 para el archivo tbl1.tsv es:\n", pregunta_11())
 
-    Rta/
-         c0       c4
-    0     0    b,f,g
-    1     1    a,c,f
-    2     2  a,c,e,f
-    3     3      a,b
-    ...
-    37   37  a,c,e,f
-    38   38      d,e
-    39   39    a,d,f
-    """
+"""
+Construya una tabla que contenga `c0` y una lista separada por ',' de
+los valores de la columna `c4` del archivo `tbl1.tsv`.
+
+Rta/
+     c0       c4
+0     0    b,f,g
+1     1    a,c,f
+2     2  a,c,e,f
+3     3      a,b
+...
+37   37  a,c,e,f
+38   38      d,e
+39   39    a,d,f
+"""
