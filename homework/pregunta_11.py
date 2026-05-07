@@ -13,6 +13,8 @@ def pregunta_11():
      return tbl1[["c0", "c4"]].explode("c4").groupby("c0")["c4"].apply(lambda x: ",".join(sorted(x))).reset_index()
 print("La tabla que contiene c0 y una lista separada por ',' de los valores de la columna c4 para el archivo tbl1.tsv es:\n", pregunta_11())
 
+
+
 """
 Construya una tabla que contenga `c0` y una lista separada por ',' de
 los valores de la columna `c4` del archivo `tbl1.tsv`.
