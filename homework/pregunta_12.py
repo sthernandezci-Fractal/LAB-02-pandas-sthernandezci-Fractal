@@ -13,6 +13,8 @@ def pregunta_12():
      return tbl2.groupby("c0")["c5"].apply(lambda x: ",".join(sorted(x))).reset_index()
 print("La tabla con c0 y la lista de c5a y c5b unidos por ':' es:\n", pregunta_12())
 
+
+
 """
 Construya una tabla que contenga `c0` y una lista separada por ','
 de los valores de la columna `c5a`  y `c5b` (unidos por ':') de la
